@@ -32,14 +32,16 @@ class GildedRoseTest(TestCase):
         updated_items = self.gilded_rose_update_quality([Item("foo", 1, 1)])
         self.assertEqual(0, updated_items[0].sell_in)
 
-    @skip
-    def test_aged_brie_quality_should_increase_in_quality_after_sell_in(self):
+    def test_aged_brie_quality_should_go_to_zero_after_sell_in(self):
         updated_items = self.gilded_rose_update_quality([Item("Aged Brie", -1, 1)])
-        self.assertEqual(3, updated_items[0].quality)
+        self.assertEqual(0, updated_items[0].quality)
 
-    @skip
-    def test_aged_brie_quality_should_increase_in_quality(self):
+    def test_aged_brie_quality_should_increase_by_three(self):
         updated_items = self.gilded_rose_update_quality([Item("Aged Brie", 1, 1)])
+        self.assertEqual(4, updated_items[0].quality)
+
+    def test_aged_brie_quality_should_increase_by_one(self):
+        updated_items = self.gilded_rose_update_quality([Item("Aged Brie", 11, 1)])
         self.assertEqual(2, updated_items[0].quality)
 
     def test_aged_brie_quality_should_increase_in_quality_but_not_above_50(self):
