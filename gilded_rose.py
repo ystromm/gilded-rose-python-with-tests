@@ -1,4 +1,4 @@
-SULFURUS = "Sulfuras, Hand of Ragnaros"
+SULFURAS = "Sulfuras, Hand of Ragnaros"
 BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert"
 AGED_BRIE = "Aged Brie"
 
@@ -7,7 +7,7 @@ class GildedRose:
     @staticmethod
     def update_quality(items):
         for item in items:
-            if SULFURUS == item.name:
+            if SULFURAS == item.name:
                 #do something with sulfuris
                 item.quality = 80
                 pass
