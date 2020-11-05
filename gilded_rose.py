@@ -13,11 +13,18 @@ class GildedRose:
                 pass
             elif AGED_BRIE == item.name:
                 GildedRose.update_aged_brie(item)
+                GildedRose.cap_quality(item)
             elif BACKSTAGE_PASSES == item.name:
                 GildedRose.update_backstage_passes(item)
+                GildedRose.cap_quality(item)
             else:
                 GildedRose.update_item(item)
+                GildedRose.cap_quality(item)
         return items
+
+    def cap_quality(item):
+        if item.quality > 50:
+            item.quality = 50
 
     @staticmethod
     def update_item(item):
@@ -28,8 +35,6 @@ class GildedRose:
         if item.sell_in < 0:
             if item.quality > 0:
                 item.quality = item.quality - 1
-        if item.quality > 50:
-            item.quality = 50
 
     @staticmethod
     def update_backstage_passes(item):
@@ -47,9 +52,7 @@ class GildedRose:
         item.sell_in = item.sell_in - 1
         if item.sell_in < 0:
             # TODO: Fix this.
-            item.quality = item.quality - item.quality
-        if item.quality > 50:
-            item.quality = 50
+            item.quality = 0
 
     @staticmethod
     def update_aged_brie(item):
@@ -64,7 +67,4 @@ class GildedRose:
         if item.sell_in < 0:
             if item.quality < 50:
                 item.quality = item.quality + 1
-            if item.sell_in <= 0:
-                item.quality = 0
-        if item.quality > 50:
-            item.quality = 50
+            item.quality = 0
