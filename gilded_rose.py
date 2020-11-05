@@ -9,7 +9,7 @@ class GildedRose:
         for item in items:
             if SULFURAS == item.name:
                 #do something with sulfuris
-                item.quality = 80
+                #item.quality = 80
                 pass
             elif AGED_BRIE == item.name:
                 GildedRose.update_aged_brie(item)
@@ -17,6 +17,8 @@ class GildedRose:
             elif BACKSTAGE_PASSES == item.name:
                 GildedRose.update_backstage_passes(item)
                 GildedRose.cap_quality(item)
+            elif item.name == 'Conjured Mana Cake':
+                pass
             else:
                 GildedRose.update_item(item)
                 GildedRose.cap_quality(item)

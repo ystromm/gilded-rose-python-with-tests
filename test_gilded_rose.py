@@ -52,7 +52,6 @@ class GildedRoseTest(TestCase):
         updated_items = self.gilded_rose_update_quality([Item("Sulfuras, Hand of Ragnaros", 1, 80)])
         self.assertEqual(80, updated_items[0].quality)
 
-    @skip
     def test_sulfuras_should_have_quality_80(self):
         updated_items = self.gilded_rose_update_quality([Item("Sulfuras, Hand of Ragnaros", 1, 1)])
         self.assertEqual(80, updated_items[0].quality)
@@ -166,7 +165,6 @@ class GildedRoseTest(TestCase):
         self.assertEqual(item.quality, expected['quality'])
         self.assertEqual(item.sell_in, expected['sell_in'])
 
-    @skip
     def test_conjured_items_decrease_in_quality_twice_as_fast(self):
         updated_items = self.gilded_rose_update_quality([Item("Conjured Mana Cake", 3, 6)])
         expected = {'sell_in': 2, 'quality': 2}
