@@ -51,7 +51,7 @@ class GildedRose:
         if item.quality > 50:
             item.quality = 50
 
-
+    @staticmethod
     def update_aged_brie(item):
         if item.quality < 50:
             item.quality = item.quality + 1
@@ -68,5 +68,3 @@ class GildedRose:
                 item.quality = 0
         if item.quality > 50:
             item.quality = 50
-
-#comment
