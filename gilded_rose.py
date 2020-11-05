@@ -45,8 +45,7 @@ class GildedRose:
             if AGED_BRIE != item.name:
                 if BACKSTAGE_PASSES != item.name:
                     if item.quality > 0:
-                        if SULFURUS != item.name:
-                            item.quality = item.quality - 1
+                        item.quality = item.quality - 1
                 else:
                     # TODO: Fix this.
                     item.quality = item.quality - item.quality
